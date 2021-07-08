@@ -1,5 +1,4 @@
-import { v4 as uuid } from 'uuid';
-import {IsNull, MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table} from "typeorm";
 
 export class CreateUser1624913609466 implements MigrationInterface {
 
