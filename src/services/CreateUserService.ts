@@ -1,6 +1,7 @@
-import { getCustomRepository } from "typeorm";
-import {UsersRepository} from "../repositories/UsersRepository";
+import { getCustomRepository, Timestamp } from "typeorm";
+import {UserRepository} from "../repositories/UserRepository";
 import { hash } from "bcryptjs"
+import {validate} from "uuid";
 
 
 interface IUserRequest{
@@ -9,11 +10,12 @@ interface IUserRequest{
   cpf: string;
   password: string;
   telefone: string;
+  dataNascimento: Timestamp;
 }
 
 class CreateUserService{
-  async execute({ name, email, cpf, password, telefone} : IUserRequest){
-   const usersRepository = getCustomRepository(UsersRepository); 
+  async execute({ name, email, cpf, password, telefone, dataNascimento} : IUserRequest){
+   const usersRepository = getCustomRepository(UserRepository); 
 
    if(!email){
     throw new Error("Email incorrect");
@@ -33,11 +35,25 @@ class CreateUserService{
      cpf,
      password: passwordHash,
      telefone,
+     dataNascimento,
    });
 
    await usersRepository.save(user);
    return user;
+  }
 
+  async find(search: string) {
+    const repository = getCustomRepository(UserRepository);
+
+    const user = await repository.findOne(
+      validate(search) ? { id: search } : { name: search }
+    );
+
+    if (!user) {
+      throw new Error("User not exists");
+    }
+
+    return user;
   }
 }
 

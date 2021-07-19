@@ -35,6 +35,11 @@ export class CreateUser1624913609466 implements MigrationInterface {
                     name:"telefone",
                     type:"varchar",
                     isNullable: false
+                },
+                {
+                    name:"dataNascimento",
+                    type:"timestamp",
+                    isNullable: false
                 }
 
             ]
