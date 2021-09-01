@@ -3,20 +3,22 @@ import { GetUserService } from "../services/GetUserService"
 import jwt from "jsonwebtoken"
 
 
+
 class AuthenticateUserController{
-  async handle(request: Request, response: Response){
+  async handle(request: Request, response: Response){ 
+
   const {email}= request.body;
+
+  console.log(request.user);
 
     const getUserService = new GetUserService();
 
-    const user = await getUserService.execute({email});
-
+    const user = await getUserService.execute(email);
 
     const token = await jwt.sign({user}, "secret")
 
     return response.json({user, token})
   }
 }
-  
 
 export {AuthenticateUserController}

@@ -27,6 +27,11 @@ export class CreateConfig1625713851120 implements MigrationInterface {
                     isNullable: false
                 },
                 {
+                    name:"uf",
+                    type:"varchar",
+                    isNullable: false
+                },
+                {
                     name:"cidade",
                     type:"varchar",
                     isNullable: false

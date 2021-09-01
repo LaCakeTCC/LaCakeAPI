@@ -11,6 +11,8 @@ class GetUserService{
 
   const user = await usersRepository.findOne({email});
 
+  console.log (user);
+
   if(!user){
     throw new Error ("user dont exists");
   }
