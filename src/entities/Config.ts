@@ -31,6 +31,9 @@ class Config {
   @Column()
   complemento: string;
 
+  @Column()
+  userId:string;
+
   constructor() {
     this.id = v4();
   }

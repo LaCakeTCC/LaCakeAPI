@@ -14,49 +14,53 @@ export class CreateConfig1625713851120 implements MigrationInterface {
                 {
                     name:"nomeloja",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name:"editbio",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name:"cep",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name:"uf",
                     type:"varchar",
-                    isNullable: false
+                    isNullable:  true
                 },
                 {
                     name:"cidade",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name:"logradouro",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name:"bairro",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name:"numero",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
                 },
                 {
                     name:"complemento",
                     type:"varchar",
-                    isNullable: false
+                    isNullable: true
+                },
+                {
+                   name:"userId",
+                   type:"varchar",
+                   isNullable: false
                 }
-                
             ]
         }))
         

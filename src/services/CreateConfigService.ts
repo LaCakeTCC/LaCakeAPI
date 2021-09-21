@@ -3,14 +3,15 @@ import { ConfigRepository } from "../repositories/ConfigRepository";
 
 
 interface ConfigInterface{
-  nomeloja: string;
-  editbio: string;
-  cep: string;
-  cidade: string;
-  logradouro: string;
-  bairro: string;
-  numero: string;
-  complemento: string;
+  nomeloja?: string;
+  editbio?: string;
+  cep?: string;
+  cidade?: string;
+  logradouro?: string;
+  bairro?: string;
+  numero?: string;
+  complemento?: string;
+  userId?: string;
 }
 
 class CreateConfigService{
@@ -22,7 +23,8 @@ class CreateConfigService{
     logradouro,
     bairro,
     numero,
-    complemento
+    complemento,
+    userId
   }:ConfigInterface)
   {
     const configRepository = getCustomRepository(ConfigRepository);
@@ -41,7 +43,8 @@ class CreateConfigService{
     logradouro,
     bairro,
     numero,
-    complemento
+    complemento,
+    userId
     });
 
     await configRepository.save(config);
